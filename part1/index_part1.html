@@ -1,0 +1,58 @@
+<!--
+  File: index_part1.html
+  GUI Assignment: Part 1 – jQuery Validation
+  Author: Rajin Kichannagari <Rajin_Kichannagari@student.uml.edu>
+  Created: June 2025
+  Interactive multiplication grid with jQuery Validation only
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Multiplication Grid – Part 1 (Validation)</title>
+  
+  <!-- jQuery & Validation plugin -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+  
+  <!-- Your existing styles -->
+  <link rel="stylesheet" href="css/dynamic_table.css" />
+</head>
+<body>
+  <div class="app-container">
+    <div class="header">
+      <h1>Multiplication Grid (Part 1)</h1>
+      <p>Validate your inputs before generating a table.</p>
+    </div>
+
+    <fieldset>
+      <legend>Enter table ranges [-50 to 50]</legend>
+      <form id="generateForm">
+        <p>
+          <label for="colFrom">Start column:</label>
+          <input type="number" id="colFrom" name="colFrom" value="1" min="-50" max="50" required />
+        </p>
+        <p>
+          <label for="colTo">End column:</label>
+          <input type="number" id="colTo" name="colTo" value="10" min="-50" max="50" required />
+        </p>
+        <p>
+          <label for="rowFrom">Start row:</label>
+          <input type="number" id="rowFrom" name="rowFrom" value="1" min="-50" max="50" required />
+        </p>
+        <p>
+          <label for="rowTo">End row:</label>
+          <input type="number" id="rowTo" name="rowTo" value="10" min="-50" max="50" required />
+        </p>
+        <p><input type="submit" value="Generate Table" /></p>
+        <div id="info"></div>
+      </form>
+    </fieldset>
+
+    <div id="dynamicTable"></div>
+  </div>
+
+  <script src="js/part1.js"></script>
+</body>
+</html>

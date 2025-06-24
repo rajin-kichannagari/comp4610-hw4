@@ -1,0 +1,91 @@
+<!--
+  File: index.html
+  GUI Assignment: Using the jQuery Plugin/UI with Your Dynamic Table
+  Author: Rajin Kichannagari <Rajin_Kichannagari@student.uml.edu>
+  Created: June 2025
+  Interactive multiplication grid with jQuery Validation and jQuery UI
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interactive Multiplication Grid - HW4</title>
+  
+  <!-- jQuery & plugins -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+  
+  <!-- jQuery UI theme -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css" />
+  
+  <!-- Your custom styles -->
+  <link rel="stylesheet" href="css/dynamic_table.css" />
+</head>
+<body>
+  <div class="app-container">
+    <div class="header">
+      <h1>Interactive Multiplication Grid</h1>
+      <p>Create custom multiplication tables with jQuery UI!</p>
+    </div>
+
+    <fieldset>
+      <legend>Please enter table ranges [-50 to 50]</legend>
+      <form id="generateForm">
+        <p>
+          <label for="colFrom">Starting column value:</label>
+          <input type="number" id="colFrom" name="colFrom" value="1" min="-50" max="50" required />
+          <div id="colFromSlider" class="slider"></div>
+        </p>
+        <p>
+          <label for="colTo">Ending column value:</label>
+          <input type="number" id="colTo" name="colTo" value="10" min="-50" max="50" required />
+          <div id="colToSlider" class="slider"></div>
+        </p>
+        <p>
+          <label for="rowFrom">Starting row value:</label>
+          <input type="number" id="rowFrom" name="rowFrom" value="1" min="-50" max="50" required />
+          <div id="rowFromSlider" class="slider"></div>
+        </p>
+        <p>
+          <label for="rowTo">Ending row value:</label>
+          <input type="number" id="rowTo" name="rowTo" value="10" min="-50" max="50" required />
+          <div id="rowToSlider" class="slider"></div>
+        </p>
+        <p>
+          <input type="submit" id="saveButton" value="Save Table" />
+        </p>
+        <div id="info"></div>
+      </form>
+    </fieldset>
+
+    <div id="dynamicTable"></div>
+
+    <div id="savedTables">
+      <ul></ul>
+    </div>
+
+    <div class="tab-controls">
+      <h4>Tab Management</h4>
+      <div class="tab-control-group">
+        <label for="tabSelect">Select Tab to Delete:</label>
+        <select id="tabSelect">
+          <option value="">No tabs available</option>
+        </select>
+        <button type="button" id="deleteSelectedTab" class="ui-button delete-btn">Delete Selected Tab</button>
+      </div>
+      <div class="tab-control-group">
+        <button type="button" id="deleteMultipleTabs" class="ui-button delete-btn">Delete Multiple Tabs</button>
+        <button type="button" id="resetAllTabs" class="ui-button delete-btn">Delete All Tabs</button>
+      </div>
+      <div id="tabInfo" style="margin-top: 10px; font-style: italic; color: #666;">
+        No saved tables yet.
+      </div>
+    </div>
+  </div>
+
+  <!-- Your custom script -->
+  <script src="js/dynamic_table.js"></script>
+</body>
+</html>
